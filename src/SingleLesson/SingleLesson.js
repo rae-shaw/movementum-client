@@ -1,35 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlanContext from '../PlanContext.js';
+import FolderApiService from '../services/folder-api-services.js';
 
 export default class SingleLesson extends React.Component{
+    static contextType = PlanContext;
+
+    state = {
+        folder: {}
+    }
+
+    componentDidMount(){
+        FolderApiService.getFolder(this.props.location.state.plan.folder_id)
+        .then(singleFolderData => {
+            this.setState({
+                folder: singleFolderData
+            })
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error })
+        })
+    }
     render(){
+        console.log('props in single lesson', this.props)
+        console.log('state in single lesson', this.state)
+
+        const plan = this.props.location.state.plan
             return(
                 <>
                     <nav role="navigation">Nav</nav>
                     <main role="main">
                         <header>
-                            <h2>Class Plan Title</h2>
-                            <h3>Date of Class</h3>
+                            <h1>{this.state.folder.name}</h1>
+                            <h2>{plan.name}</h2>
+                            <h3>{plan.class_date}</h3>
                         </header>
                         <section>
-                            <h4>Name</h4>
-                            <h5>Date</h5>
-                            <h5>Class</h5>
-                            <div class="class-section">
-                                <h5>Warm-Up</h5>
-                                <p>Sample warm-up ideas!</p>
+                            <div className="class-section">
+                                <h4>Warm-Up</h4>
+                                <p>{plan.warm_up}</p>
                             </div>
-                            <div class="class-section">
-                                <h5>Skills</h5>
-                                <p>Sample skill ideas!</p>
+                            <div className="class-section">
+                                <h4>Skills</h4>
+                                <p>{plan.skills}</p>
                             </div>
-                            <div class="class-section">
-                                <h5>Notes for Next Class</h5>
-                                <p>Sample notes here!</p>
+                            <div className="class-section">
+                                <h4>Notes for Next Class</h4>
+                                <p>{plan.notes}</p>
                             </div>
-                            <div class="class-section">
-                                <h5>Student Notes</h5>
-                                <p>Sample student notes!</p>
+                            <div className="class-section">
+                                <h4>Student Notes</h4>
+                                <p>{plan.students}</p>
                             </div>
                             <Link to='/main'>
                                 <button>Edit</button>
