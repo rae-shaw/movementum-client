@@ -27,23 +27,37 @@ const PlanApiService = {
         )
     },
     //need to work on this one
-    postPlan(text) {
+    postPlan(newPlan) {
         return fetch(`${config.API_ENDPOINT}/plan`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
-            body: JSON.stringify({
-                //add other body here
-                text,
-            }),
+            body: JSON.stringify(newPlan),
         })
-        .then(res =>
-            (!res.ok)
+        .then(res => {
+            return (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
+        }
         )
+    },
+    patchPlan(updatedFields){
+        return fetch(`${config.API_ENDPOINT}/plan/${this.props.match.params.folderId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(updatedFields),
+            headers: {
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
+            'content-type': 'application/json',
+            },
+        })
+        .then( () => {
+            this.props.history.push(`/main`)
+        })
+        .catch(error => {
+            console.error({ error })
+        });
     }
     //patchPlan
     //add patch here

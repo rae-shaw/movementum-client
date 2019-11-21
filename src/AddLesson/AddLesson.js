@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlanContext from '../PlanContext.js'
+import FolderContext from '../FolderContext.js';
+import PlanApiService from '../services/plan-api-services';
 
 export default class AddLesson extends React.Component{
 
@@ -10,7 +11,7 @@ static defaultProps = {
 	    },
 	}
 
-	static contextType = PlanContext;
+	static contextType = FolderContext;
 
 	constructor(props) {
     	super(props);
@@ -36,71 +37,93 @@ static defaultProps = {
       		}
   	}
 
-/*  	handleSubmit = e => {
-	    e.preventDefault()
-	    const lesson = {
-	      name: e.target['folder-name'].value
-	    }
-	    console.log('********* folder',folder)
-	    FolderApiService.postFolder(folder)
-	    .then((folder) => {
-	    	console.log('*********** in addFolder .then', folder)
-	    	this.props.history.push(`/main`)
-	    })
-	    .catch(
-	    	//error => { console.error({ error }) }
-	    	)
-	}*/
+  	handleSubmit = e => {
+        e.preventDefault()
+        console.log('IN handleSubmit!')
+        
+        let newPlan = {
+            name: e.target['name'].value,
+            folder_id: e.target['folder-id'].value 
+        }
+
+        if (e.target['date'].value !== '') {
+            newPlan.class_date = [e.target['date'].value];
+        }
+        if (e.target['warm-Up'].value !== '') {
+            newPlan.warm_up = [e.target['warm-Up'].value];
+        }
+        if (e.target['skills'].value !== '') {
+            newPlan.skills = [e.target['skills'].value];
+        }
+        if (e.target['notes'].value !== '') {
+            newPlan.notes = [e.target['notes'].value];
+        }
+        if (e.target['students'].value !== '') {
+            newPlan.notes = [e.target['students'].value];
+        }
+
+        console.log(newPlan)
+        PlanApiService.postPlan(newPlan)
+
+        .then((plan) => {
+        	console.log('NEWPLAN', plan)
+            this.props.history.push(`/main`)
+        })
+        .catch(error => {
+            console.error({ error })
+        });
+    }
+
 
 
 
     render(){
-    	const { plans=[] } =this.context
+    	const { folders=[] } =this.context
     	console.log('********Props', this.props)
-    	console.log('add lesson context', this.context.plans)
+    	console.log('add lesson context', this.context)
         return(
             <>
 		      	<header>
 		        	<h1>Add Lesson Plan</h1>
 		      	</header>
 		      	<section>
-		        	<form id="class-plan">
+		        	<form id="class-plan" onSubmit={this.handleSubmit}>
 		          		<div className="form-section">
-		            		<label for="lesson-title">Name</label>
-		            		<textarea type="text" name="skill-name" placeholder="Class 1" required ></textarea>
+		            		<label htmlFor="name">Name</label>
+		            		<textarea type="text" name="name" placeholder="Class 1" required ></textarea>
 		          		</div>
 		          		<div className="form-section">
-		            		<label for="date">Date</label>
+		            		<label htmlFor="date">Date</label>
 		            		<textarea type="date" name="date" ></textarea>
 		          		</div>
 		          		<div className="form-section">
-	            			<label for="folder">Class</label>
-	            			<select required>
-	              				<option value="Trapeze">Trapeze</option>
-	              				<option value="Lyra">Lyra</option>
-	              				<option value="Hammock">Hammock</option>
-	              				<option value="audi">Silks</option>
+	            			<label htmlFor="folder">Class</label>
+	            			<select id='folder-id' name = 'folder-id' required>
+	            				<option type = 'number' value={34}>...</option>
+	              				{folders.map(folder =>
+                                <option key={folder.id} value={folder.id}>
+                                    {folder.name}
+                                </option>
+                            )}
 	            			</select>
 		          		</div>
 		          		<div className="form-section">
-		            		<label for="Warm-Up">Warm-Up</label>
-		            		<textarea name="Warm-Up" rows="15"   ></textarea>
+		            		<label htmlFor="warm-Up">Warm-Up</label>
+		            		<textarea name="warm-Up" rows="15"   ></textarea>
 		          		</div>
 		          		<div className="form-section">
-		            		<label for="skills">Skills or Combinations</label>
+		            		<label htmlFor="skills">Skills or Combinations</label>
 		            		<textarea name="skills" rows="10"   ></textarea>
 		          		</div>
 		          		<div className="form-section">
-		            		<label for="notes">Notes for Next Class</label>
+		            		<label htmlFor="notes">Notes for Next Class</label>
 		            		<textarea name="notes" rows="10"   ></textarea>
 		          		</div>
 		          		<div className="form-section">
-		            		<label for="students">Notes on Students</label>
+		            		<label htmlFor="students">Notes on Students</label>
 		            		<textarea name="students" rows="10"   ></textarea>
 		          		</div>
-		          		<Link to='/main'>
 		          			<button type="submit">Submit</button>
-		          		</Link>
 		          			<button type="reset">Reset</button>
 		        	</form>
 		      	</section>

@@ -9,6 +9,7 @@ import LandingPage from './LandingPage/LandingPage.js';
 import SingleFolder from './SingleFolder/SingleFolder.js';
 import SingleLesson from './SingleLesson/SingleLesson.js';
 import Registration from './Registration/Registration.js';
+import UpdateLesson from './UpdateLesson/UpdateLesson.js'
 import './App.css';
 
 
@@ -39,6 +40,7 @@ class App extends React.Component{
                         <Route path='/newlesson' component = {AddLesson}/>
                         <Route path='/lesson/:lessonId' component = {SingleLesson} />
                         <Route path='/main/:folderId' component = {FullLessons}/>
+                        <Route path='/update-lesson/:lessonId' component={UpdateLesson}/>
                         <Route path='/registration' componenet={Registration}/>
                     </Switch>
                 </main>

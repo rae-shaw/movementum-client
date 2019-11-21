@@ -14,7 +14,7 @@ export default class PlanItem extends React.Component{
 				< >
 					<section className= 'folderItem'>
 						
-					    <Link to= {{ pathname: `/main/${this.props.id}`, state: { plan: this.props } }} >
+					    <Link to= {{ pathname: `/lesson/${this.props.id}`, state: { plan: this.props } }} >
 					    	<h2 className= 'header'>{this.props.name}</h2>
 					    </Link>
 					    	<p>{this.props.date_created}</p> 
