@@ -6,8 +6,6 @@ import PlanItem from '../PlanItem/PlanItem.js';
 import PlanContext from '../PlanContext.js';
 
 export default class FullLessons extends React.Component{
-    static contextType = PlanContext;
-
     state={
         plans:[]
     }
