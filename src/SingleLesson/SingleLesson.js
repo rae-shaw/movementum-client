@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PlanContext from '../PlanContext.js';
 import FolderApiService from '../services/folder-api-services.js';
+import PlanApiService from '../services/plan-api-services.js';
 
 export default class SingleLesson extends React.Component{
     static contextType = PlanContext;
@@ -22,9 +23,25 @@ export default class SingleLesson extends React.Component{
             this.setState({ error })
         })
     }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        const planId = this.props.match.params.lessonId
+        PlanApiService.deletePlan(planId)
+        .then(() => {
+            this.props.history.push(`/main`)
+        })
+
+        .catch(error => {
+            console.error({ error })
+        })
+    }
+
     render(){
         console.log('props in single lesson', this.props)
-        console.log('state in single lesson', this.state)
+        
+        const planLink = `/update-lesson/${this.props.match.params.lessonId}`
+        console.log('planLink', planLink)
 
         const plan = this.props.location.state.plan
             return(
@@ -36,7 +53,7 @@ export default class SingleLesson extends React.Component{
                             <h2>{plan.name}</h2>
                             <h3>{plan.class_date}</h3>
                         </header>
-                        <section>
+                        <form onSubmit={this.handleSubmit}>
                             <div className="class-section">
                                 <h4>Warm-Up</h4>
                                 <p>{plan.warm_up}</p>
@@ -53,13 +70,11 @@ export default class SingleLesson extends React.Component{
                                 <h4>Student Notes</h4>
                                 <p>{plan.students}</p>
                             </div>
-                            <Link to='/main'>
-                                <button>Edit</button>
+                            <Link to={{pathname: planLink}}>
+                                <button className='buttons'>Edit</button>
                             </Link>
-                            <Link to ='/main'>
-                                <button>Delete</button>
-                            </Link>
-                        </section>
+                                <button className='buttons' type="submit">Delete</button>
+                        </form>
                     </main>
                     <footer role="content-info">Footer</footer>
                 </>

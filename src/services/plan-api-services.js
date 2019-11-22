@@ -40,11 +40,10 @@ const PlanApiService = {
             return (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
-        }
-        )
+        })
     },
     patchPlan(updatedFields){
-        return fetch(`${config.API_ENDPOINT}/plan/${this.props.match.params.folderId}`, {
+        return fetch(`${config.API_ENDPOINT}/plan/${updatedFields.id}`, {
             method: 'PATCH',
             body: JSON.stringify(updatedFields),
             headers: {
@@ -52,17 +51,22 @@ const PlanApiService = {
             'content-type': 'application/json',
             },
         })
-        .then( () => {
-            this.props.history.push(`/main`)
+    },
+    deletePlan(planId) {
+        return fetch(`${config.API_ENDPOINT}/plan/${planId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json',
+            },
         })
-        .catch(error => {
-            console.error({ error })
-        });
+
+        .then(res => {
+            if (!res.ok)
+                    throw new Error()
+                return
+        })
     }
-    //patchPlan
-    //add patch here
-    //deletePlan
-    //add delete here
 }
 
 export default PlanApiService

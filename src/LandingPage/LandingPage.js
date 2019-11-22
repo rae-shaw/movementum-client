@@ -25,6 +25,7 @@ export default class LandingPage extends React.Component{
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onLoginSuccess()
+            this.props.handleLogin()
             this.props.history.push(`/main`)
         })
         .catch(res => {
@@ -34,6 +35,7 @@ export default class LandingPage extends React.Component{
 
 
     render(){
+        console.log('LandingPage props', this.props)
         return(
             <>
                 <nav role="navigation">Nav</nav>
