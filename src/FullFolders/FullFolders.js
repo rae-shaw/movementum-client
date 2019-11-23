@@ -6,6 +6,7 @@ import FolderItem from '../FolderItem/FolderItem.js';
 
 
 export default function FullFolders (props){
+
 	
 	const [folders, setFolders ] = useState([])
 	const [error, setError ] = useState('')

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import config from '../config';
+//import config from '../config';
 import PlanApiService from '../services/plan-api-services.js';
 import PlanItem from '../PlanItem/PlanItem.js';
 import PlanContext from '../PlanContext.js';
@@ -22,6 +22,7 @@ export default class FullLessons extends React.Component{
             this.setState({ error })
         })
     }
+    
     render(){
     
         const planContextValue = { plans : this.state.plans }

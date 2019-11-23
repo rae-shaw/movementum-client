@@ -98,7 +98,7 @@ export default class LandingPage extends React.Component{
                             </form>
                     </section>
                 </main>
-                <footer role="content-info">Footer</footer>
+                <footer role="contentinfo">Footer</footer>
             </>
 
         )

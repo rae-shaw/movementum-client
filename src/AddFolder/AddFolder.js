@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ValidationError from '../ValidationError.js';
+//import ValidationError from '../ValidationError.js';
 import FolderApiService from '../services/folder-api-services.js';
 import FolderContext from '../FolderContext.js';
 

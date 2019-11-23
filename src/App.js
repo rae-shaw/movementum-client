@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AddFolder from './AddFolder/AddFolder.js';
 import AddLesson from './AddLesson/AddLesson.js';
 import FullFolders from './FullFolders/FullFolders.js';
@@ -10,7 +10,10 @@ import SingleFolder from './SingleFolder/SingleFolder.js';
 import SingleLesson from './SingleLesson/SingleLesson.js';
 import Registration from './Registration/Registration.js';
 import UpdateLesson from './UpdateLesson/UpdateLesson.js';
-import Header from './Header/Header'
+import LoginOnly from './LoginOnly/LoginOnly.js';
+import Header from './Header/Header';
+import PrivateRoute from './Utils/PrivateRoute';
+import PublicRoute from './Utils/PublicRoute';
 import './App.css';
 
 
@@ -43,11 +46,11 @@ class App extends React.Component{
                 <section className='sidebar'>
                 
                     <Switch>
-                        <Route path='/addfolder' component = {FullFolders}/>
-                        <Route exact path='/main' component={FullFolders} />
-                        <Route path='/newlesson' component = {FullFolders}/>
-                        <Route path='/lesson/:lessonId' component = {SingleFolder}/>
-                        <Route path='/main/:folderId' component = {FullFolders} />
+                        <PrivateRoute path='/addfolder' component = {FullFolders}/>
+                        <PrivateRoute exact path='/main' component={FullFolders} />
+                        <PrivateRoute path='/newlesson' component = {FullFolders}/>
+                        <PrivateRoute path='/lesson/:lessonId' component = {SingleFolder}/>
+                        <PrivateRoute path='/main/:folderId' component = {FullFolders} />
                     </Switch>
              
                 </section>
@@ -57,13 +60,16 @@ class App extends React.Component{
                         <Route exact path='/' render={props => 
                             (<LandingPage {...props} handleLogin={this.handleLogin} />)
                         }/>
-                        <Route path='/addfolder' component={AddFolder} />
-                        <Route exact path='/main' component={FullLessons} />
-                        <Route path='/newlesson' component = {AddLesson}/>
-                        <Route path='/lesson/:lessonId' component = {SingleLesson} />
-                        <Route path='/main/:folderId' component = {FullLessons}/>
-                        <Route path='/update-lesson/:lessonId' component={UpdateLesson}/>
+                        <PrivateRoute path='/addfolder' component={AddFolder} />
+                        <PrivateRoute exact path='/main' component={FullLessons} />
+                        <PrivateRoute path='/newlesson' component = {AddLesson}/>
+                        <PrivateRoute path='/lesson/:lessonId' component = {SingleLesson} />
+                        <PrivateRoute path='/main/:folderId' component = {FullLessons}/>
+                        <PrivateRoute path='/update-lesson/:lessonId' component={UpdateLesson}/>
                         <Route path='/registration' component={Registration}/>
+                        <PublicRoute path='/login' render={props => 
+                            (<LoginOnly {...props} handleLogin={this.handleLogin} />)
+                        }/>
                     </Switch>
                 </main>
                 </Router>

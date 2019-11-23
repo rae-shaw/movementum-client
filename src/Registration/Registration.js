@@ -10,7 +10,7 @@ export default class Registration extends Component {
 
   	handleRegistrationSuccess = user => {
     	const { history } = this.props
-    	history.push('/main')
+    	history.push('/login')
   	}
 
   	render() {

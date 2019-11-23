@@ -76,7 +76,7 @@ export default class SingleLesson extends React.Component{
                                 <button className='buttons' type="submit">Delete</button>
                         </form>
                     </main>
-                    <footer role="content-info">Footer</footer>
+                    <footer role="contentinfo">Footer</footer>
                 </>
             )
         }
