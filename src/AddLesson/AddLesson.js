@@ -1,6 +1,6 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
-import FolderContext from '../FolderContext.js';
+//import FolderContext from '../FolderContext.js';
 import PlanApiService from '../services/plan-api-services';
 
 export default class AddLesson extends React.Component{
@@ -11,7 +11,7 @@ static defaultProps = {
 	    },
 	}
 
-	static contextType = FolderContext;
+	//static contextType = FolderContext;
 
 	constructor(props) {
     	super(props);
@@ -78,9 +78,9 @@ static defaultProps = {
 
 
     render(){
-    	const { folders=[] } =this.context
+    	const folders=[]
     	console.log('********Props', this.props)
-    	console.log('add lesson context', this.context)
+    	//console.log('add lesson context', this.context)
         return(
             <>
 		      	<header>

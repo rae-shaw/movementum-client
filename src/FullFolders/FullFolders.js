@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FolderContext from '../FolderContext.js';
+//import FolderContext from '../FolderContext.js';
 import FolderApiService from '../services/folder-api-services.js';
 import FolderItem from '../FolderItem/FolderItem.js';
 
@@ -34,10 +34,10 @@ export default function FullFolders (props){
       		]
     	)
   	}
-		const folderContextValue ={
-			folders: folders,
-			addFolder: handleAddFolder
-		}
+		// const folderContextValue ={
+		// 	folders: folders,
+		// 	addFolder: handleAddFolder
+		// }
 		if (props.match.path === '/main'){
 		
 		const foldersToRender= folders.map((folder, i) => {
@@ -50,7 +50,6 @@ export default function FullFolders (props){
 		//console.log('State', this.state)
 
 		return(
-			<FolderContext.Provider value={folderContextValue}>
 			<main>
 		    	<section>
 		        	<header>
@@ -64,7 +63,6 @@ export default function FullFolders (props){
 		        	</Link>
 		      	</section>
 			</main>
-			</FolderContext.Provider>
 		)
 	}else{
 
@@ -75,7 +73,6 @@ export default function FullFolders (props){
 			return (<FolderItem{...folder} highlighted = {currentFolder === folder.id} key={i} folderIdPath={folderIdPath} />)
 		})
 		return(
-			<FolderContext.Provider value={folderContextValue}>
 			<main>
 		    	<section>
 		        	<header>
@@ -89,7 +86,6 @@ export default function FullFolders (props){
 		        	</Link>
 		      	</section>
 			</main>
-			</FolderContext.Provider>
 		)
 	
 	}

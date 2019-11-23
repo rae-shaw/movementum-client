@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlanContext from '../PlanContext.js';
+//import PlanContext from '../PlanContext.js';
 import PlanApiService from '../services/plan-api-services.js';
 //import { Redirect } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import PlanApiService from '../services/plan-api-services.js';
 
 
 export default class PlanItem extends React.Component{
-	static contextType = PlanContext;
+	//static contextType = PlanContext;
 
 	constructor(props) {
     	super(props);

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PlanContext from '../PlanContext.js';
+//import PlanContext from '../PlanContext.js';
 import FolderApiService from '../services/folder-api-services.js';
 import PlanApiService from '../services/plan-api-services.js';
 
 export default class SingleLesson extends React.Component{
-    static contextType = PlanContext;
+    //static contextType = PlanContext;
 
     state = {
         folder: {}

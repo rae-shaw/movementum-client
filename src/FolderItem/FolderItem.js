@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FolderContext from '../FolderContext.js';
+//import FolderContext from '../FolderContext.js';
 
 
 
 
 export default class FolderItem extends React.Component{
-	static contextType = FolderContext;
+	//static contextType = FolderContext;
 	render(){
 		console.log('this.props.id', this.props.id)
 		const foldersPath= `/main/${this.props.id}`
