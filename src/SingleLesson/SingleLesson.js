@@ -70,7 +70,7 @@ export default class SingleLesson extends React.Component{
                                 <h4>Student Notes</h4>
                                 <p>{plan.students}</p>
                             </div>
-                            <Link to={{pathname: planLink}}>
+                            <Link to={{pathname: `/update-lesson/${this.props.match.params.lessonId}`, state: { plan: this.props.location.state.plan } }}>
                                 <button className='buttons'>Edit</button>
                             </Link>
                                 <button className='buttons' type="submit">Delete</button>

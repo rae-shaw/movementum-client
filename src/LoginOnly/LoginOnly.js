@@ -2,12 +2,9 @@ import React from 'react';
 //import { Link } from 'react-router-dom';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
+//import { withRouter } from "react-router-dom";
 
-export default class LoginOnly extends React.Component{
-
-    static defaultProps = {
-    onLoginSuccess: () => {}
-    }
+class LoginOnly extends React.Component{
 
     static defaultProps = {
         history: {
@@ -27,12 +24,14 @@ export default class LoginOnly extends React.Component{
             password: password.value,
         })
         .then(res => {
+            console.log('****** props in LoginOnly', this.props)
+            console.log("******** .then in LoginOnly")
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.onLoginSuccess()
             this.props.handleLogin()
             this.props.history.push(`/main`)
+            
         })
         .catch(res => {
             this.setState({ error: res.error })
@@ -41,8 +40,10 @@ export default class LoginOnly extends React.Component{
 
 
     render(){
-        console.log('LandingPage props', this.props)
-        return(            
+        console.log('Login Page props', this.props)
+        console.log('******** props history in LoginOnly',this.props.history)
+       
+        return(           
             <>
                 <header>
                     <h1>Login to access your plans!</h1>
@@ -83,3 +84,5 @@ export default class LoginOnly extends React.Component{
         )
     }
 }
+
+export default LoginOnly

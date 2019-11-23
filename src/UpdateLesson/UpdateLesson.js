@@ -1,14 +1,15 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PlanApiService from '../services/plan-api-services.js';
 
 
-export default class UpdateLesson extends React.Component {
-	static defaultProps = {
-	    history: {
-	      push: () => { }
-	    },
-	}
+ class UpdateLesson extends React.Component {
+
+	// static defaultProps = {
+	//         history: {
+	//           push: () => { }
+	//         },
+	//     }
 
 	constructor(props) {
   	super(props);
@@ -80,7 +81,7 @@ export default class UpdateLesson extends React.Component {
 
 
 	render(){
-	    console.log('**********************', this.props)
+	    console.log('**********************props in updateLesson', this.props)
 	    console.log('***********', this.state.id)
 	    console.log('****************updatelessonstate)',this.state)
 	    const plan = this.props.location.state.plan
@@ -130,3 +131,5 @@ export default class UpdateLesson extends React.Component {
 		)
 	}
 }
+
+export default withRouter(UpdateLesson)

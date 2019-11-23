@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import ValidationError from '../ValidationError.js';
 import FolderApiService from '../services/folder-api-services.js';
-//import FolderContext from '../FolderContext.js';
 
 
 
@@ -13,7 +11,6 @@ export default class AddFolder extends React.Component{
 	    },
 	}
 
-	//static contextType = FolderContext;
 
 	constructor(props) {
     	super(props);

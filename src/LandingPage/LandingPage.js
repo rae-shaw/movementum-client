@@ -5,9 +5,6 @@ import TokenService from '../services/token-service';
 
 export default class LandingPage extends React.Component{
 
-    static defaultProps = {
-    onLoginSuccess: () => {}
-    }
 
     state = { error: null }
 
@@ -24,7 +21,6 @@ export default class LandingPage extends React.Component{
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.onLoginSuccess()
             this.props.handleLogin()
             this.props.history.push(`/main`)
         })
@@ -32,7 +28,6 @@ export default class LandingPage extends React.Component{
             this.setState({ error: res.error })
         })
     }
-
 
     render(){
         console.log('LandingPage props', this.props)

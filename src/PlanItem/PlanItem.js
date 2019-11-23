@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import PlanContext from '../PlanContext.js';
 import PlanApiService from '../services/plan-api-services.js';
-//import { Redirect } from 'react-router-dom';
 
 
 
 
 export default class PlanItem extends React.Component{
-	//static contextType = PlanContext;
 
 	constructor(props) {
     	super(props);
@@ -18,11 +15,11 @@ export default class PlanItem extends React.Component{
 
   	}
 
-	static defaultProps = {
-	    history: {
-	      push: () => { }
-	    },
-	}
+	// static defaultProps = {
+	//     history: {
+	//       push: () => { }
+	//     },
+	// }
 
 	handleClick = (e) => {
         e.preventDefault()
@@ -48,7 +45,7 @@ export default class PlanItem extends React.Component{
 
 	render(){
 		console.log('*****************state in planitem', this.state)
-		//const planPath = `/lesson/${this.props.id}
+		console.log('***props in plan items', this.props)
 		return(
 				< >
 					<section className= 'folderItem'>

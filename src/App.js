@@ -29,8 +29,10 @@ class App extends React.Component{
     }
 
     handleLogin = () => {
+        console.log('****handleLogin called')
         this.setState({ loggedIn: true })
     }
+    
     handleLogout = () => {
         this.setState({ loggedIn: false })
     }

@@ -2,6 +2,7 @@ import React from 'react';
 //import { Link } from 'react-router-dom';
 //import FolderContext from '../FolderContext.js';
 import PlanApiService from '../services/plan-api-services';
+import FolderApiService from '../services/folder-api-services';
 
 export default class AddLesson extends React.Component{
 
@@ -19,7 +20,8 @@ static defaultProps = {
       		name: {
         		value: "",
         		touched: false
-      		}
+      		},
+            folders: []
       	}
     }
 
@@ -75,12 +77,24 @@ static defaultProps = {
     }
 
 
-
+    componentDidMount(){
+        FolderApiService.getFolders()
+        .then(folderData => {
+            this.setState({
+                folders: folderData
+            })
+        })
+        .catch(error => {
+            console.error(error)
+            this.setState({ error })
+        })
+    }
+    
 
     render(){
-    	const folders=[]
+    	const folders=this.state.folders
     	console.log('********Props', this.props)
-    	//console.log('add lesson context', this.context)
+    	console.log('add lesson state', this.state)
         return(
             <>
 		      	<header>
@@ -99,7 +113,7 @@ static defaultProps = {
 		          		<div className="form-section">
 	            			<label htmlFor="folder">Class</label>
 	            			<select id='folder-id' name = 'folder-id' required>
-	            				<option type = 'number' value={34}>...</option>
+	            				<option type = 'number' value={1}>...</option>
 	              				{folders.map(folder =>
                                 <option key={folder.id} value={folder.id}>
                                     {folder.name}
