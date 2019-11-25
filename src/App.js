@@ -14,6 +14,7 @@ import LoginOnly from './LoginOnly/LoginOnly.js';
 import Header from './Header/Header';
 import PrivateRoute from './Utils/PrivateRoute';
 import PublicRoute from './Utils/PublicRoute';
+import FolderContext from './FolderContext.js';
 import './App.css';
 
 
@@ -36,6 +37,7 @@ class App extends React.Component{
     handleLogout = () => {
         this.setState({ loggedIn: false })
     }
+
     render(){
         
         return (
@@ -45,6 +47,7 @@ class App extends React.Component{
             </nav>
             <div className='mainSection'>
             <Router>
+            
                 <section className='sidebar'>
                 
                     <Switch>
@@ -56,10 +59,11 @@ class App extends React.Component{
                     </Switch>
              
                 </section>
+                
                 <section className='main'>
 
                     <Switch>
-                        <Route exact path='/' render={props => 
+                        <PublicRoute exact path='/' render={props => 
                             (<LandingPage {...props} handleLogin={this.handleLogin} />)
                         }/>
                         <PrivateRoute path='/addfolder' component={AddFolder} />
@@ -76,7 +80,6 @@ class App extends React.Component{
                 </section>
                 </Router>
             </div>
-
             
         </>
       );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-//import FolderContext from '../FolderContext.js';
+import FolderContext from '../FolderContext.js';
 import FolderApiService from '../services/folder-api-services.js';
 import FolderItem from '../FolderItem/FolderItem.js';
 

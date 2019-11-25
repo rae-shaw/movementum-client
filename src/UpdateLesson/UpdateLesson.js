@@ -5,11 +5,6 @@ import PlanApiService from '../services/plan-api-services.js';
 
  class UpdateLesson extends React.Component {
 
-	// static defaultProps = {
-	//         history: {
-	//           push: () => { }
-	//         },
-	//     }
 
 	constructor(props) {
   	super(props);

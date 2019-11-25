@@ -54,6 +54,10 @@ header {
   flex:1;
 }
 
+.sidebar:empty {
+  display: none;
+}
+
 h1, h2, h3 {
   font-family: 'Cherry Swash', cursive;
     
