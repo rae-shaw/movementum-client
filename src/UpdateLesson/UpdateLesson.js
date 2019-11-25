@@ -93,7 +93,7 @@ import PlanApiService from '../services/plan-api-services.js';
 			            		Folder
 			            	</label>
 			            	<select id='folder-select' name='folder-id'  onChange={this.handleChangeFolder} value={this.state.folder_id}>
-				            	<option value={1}>...</option>
+				            	<option value={null}>...</option>
 				            </select >
 			        	</div>
 			        	<div className="form-section">
@@ -101,11 +101,11 @@ import PlanApiService from '../services/plan-api-services.js';
 		        			<textarea className='text-area' name="warm-up" rows="10" value={this.state.warm_up} onChange={this.handleChangeWarm_Up} ></textarea>
 		      			</div>
 				        <div className="form-section">
-		       		    	<label htmlFor="skills">Skills</label>
+		       		    	<label htmlFor="skills">Skills or Combinations</label>
 		        	    	<textarea className='text-area' name="skills" rows="15"  value = {this.state.skills} onChange={this.handleChangeSkills} ></textarea>
 		      			</div>
 		      			<div className="form-section">
-		        			<label htmlFor="notes">Notes</label>
+		        			<label htmlFor="notes">Notes for Next Class</label>
 		        			<textarea className='text-area' name="notes" rows="10" value ={this.state.notes}  onChange={this.handleChangeNotes}  ></textarea>
 		      			</div>
 		      			

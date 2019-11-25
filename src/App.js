@@ -51,9 +51,7 @@ class App extends React.Component{
                 <section className='sidebar'>
                 
                     <Switch>
-                        <PrivateRoute path='/addfolder' component = {FullFolders}/>
                         <PrivateRoute exact path='/main' component={FullFolders} />
-                        <PrivateRoute path='/newlesson' component = {FullFolders}/>
                         <PrivateRoute path='/lesson/:lessonId' component = {SingleFolder}/>
                         <PrivateRoute path='/main/:folderId' component = {FullFolders} />
                     </Switch>

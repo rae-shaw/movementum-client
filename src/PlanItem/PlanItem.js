@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlanApiService from '../services/plan-api-services.js';
+import './PlanItem.css';
+//import { NiceDate } from '../Utils/Utils';
 
 
 
@@ -51,10 +53,10 @@ export default class PlanItem extends React.Component{
 					<section className= 'folderItem'>
 						
 					    <Link to= {{ pathname: `/lesson/${this.props.id}`, state: { plan: this.props } }} >
-					    	<h2 className= 'header'>{this.props.name}</h2>
+					    	<h3 className= 'plan-header'>{this.props.name}</h3>
 					    </Link>
-					    	<p>{this.props.date_created}</p> 
-					    <button className='buttons' onClick= {this.handleClick} >Delete</button>
+					    	<p className= 'plan-date'>{this.props.date_created}</p> 
+					    <button onClick= {this.handleClick} >Delete</button>
 					 </section>
 				</ >
 			)

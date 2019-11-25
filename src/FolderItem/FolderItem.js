@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 //import FolderContext from '../FolderContext.js';
+import './FolderItem.css';
+//import Moment from 'react-moment';
 
 
 
@@ -16,10 +18,10 @@ export default class FolderItem extends React.Component{
 				< >
 					<section className= 'folderItem'>
 						<Link className= {className} to={foldersPath}>
-					    	<h2 className= 'header'>{this.props.name}</h2>
+					    	<h3 className= 'header'>{this.props.name}</h3>
 					    	
 					    </Link>
-					    <p>{this.props.date_created}</p>
+					    <p className= 'folder-item'>{this.props.date_created} </p>
 					 </section>
 				</ >
 			)

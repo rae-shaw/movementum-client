@@ -3,38 +3,39 @@
 }
 
 main{
-  font-family: 'Rokkitt', serif;
+  font-family: 'Vollkorn', serif;
   /*display: flex;*/
   /*color:#ddd7cf;*/
 }
 
 a:link {
+  font-family: 'Vollkorn', serif;
   text-decoration: none;
 }
 
 body {
     display: flex;
-    font-family: 'Rokkitt', serif;
+    font-family: 'Vollkorn', serif;
     font-size: 20px;
-    background-color: #ddd7cf;
+    background-color: #606060;
     text-align: center;
     line-height: 1.5;
-}
 
-nav,
-footer {
-    padding: 1% 1% 6% 1%;
-    background-color: #ddd7cf;
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    border-bottom: black solid 3px;
-    max-height: 100px;
+  padding: 1% 1% 6% 1%;
+  background-color: #ddd7cf;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-bottom: #606060 solid 2px;
+  max-height: 100px;
 
 }
 
@@ -52,14 +53,20 @@ header {
 
 .sidebar {
   flex:1;
+  padding: 5%;
 }
 
 .sidebar:empty {
   display: none;
 }
 
+.red{
+    color: red;
+    font-size: small;
+}
+
 h1, h2, h3 {
-  font-family: 'Cherry Swash', cursive;
+  font-family: 'Unica One', cursive;
     
 }
 h1 {
@@ -72,6 +79,7 @@ h2, h3 {
 
 .main{
   flex:2;
+  padding: 5%;
 }
 
 .main:nth-child(even) {
@@ -96,6 +104,7 @@ h2, h3 {
     background-color: #ded8ce;
     border-radius: 4px;
     margin: 2px;
+    align-items: center;
 }
 
 .buttonRow {
@@ -145,6 +154,9 @@ h2, h3 {
 
 .text-area{
     background-color: #ddd7cf;
+}
+.text{
+  color:#606060;
 }
 
 .custom-select select:focus {

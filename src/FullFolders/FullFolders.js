@@ -59,7 +59,7 @@ export default function FullFolders (props){
 		        	{foldersToRender}
 		        	</div>
 		        	<Link to = '/addfolder'>
-		        		<button type='button'>Add Folder</button>
+		        		<button type='button' className='buttons'>Add Folder</button>
 		        	</Link>
 		      	</section>
 			</main>
@@ -82,7 +82,7 @@ export default function FullFolders (props){
 		        	{foldersToRender}
 		        	</div>
 		        	<Link to = '/addfolder'>
-		        		<button type='button'>Add Folder</button>
+		        		<button type='button' className='buttons'>Add Folder</button>
 		        	</Link>
 		      	</section>
 			</main>

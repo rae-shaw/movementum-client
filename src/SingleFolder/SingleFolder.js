@@ -26,12 +26,15 @@ export default class AddFolder extends React.Component{
     	console.log('*******singlefolderstate', this.state)
 		return(
 			< >
+				<header>
+					<h2>{this.state.folder.name}</h2>
+				</header>
 				<button>
 					<Link to={`/main`}>
 					Go Back
 					</Link>
 				</button>
-				<h2>{this.state.folder.name}</h2>
+				
 			</ >
 		)
 	}

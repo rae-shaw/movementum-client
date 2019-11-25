@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
+import'./LandingPage.css'
 
 export default class LandingPage extends React.Component{
 
@@ -30,62 +31,50 @@ export default class LandingPage extends React.Component{
     }
 
     render(){
+        const { error } = this.state
         console.log('LandingPage props', this.props)
         return(
             <>
-                <nav role="navigation">Nav</nav>
                 <main role="main">
                     <header role="banner">
                         <h1>Movementum</h1>
-                        <h2>A class planning tool designed by and for movement instructors.</h2>
+                        <h2 className='landing-title'>A class planning tool designed by and for movement instructors.</h2>
                     </header>
                     <section>
                         <header>
-                            <h3>Create folders for classes</h3>
+                            <h3 className='landing-title'>Create folders for classes</h3>
                         </header>
-                        <p>placeholder for screenshot of folder with plans</p>
-                        <p>With Movementum, you can easily organize your lesson plans by class and date.</p>
+                        <p className='landing-text'>placeholder for screenshot of folder with plans</p>
+                        <p className='landing-text'>With Movementum, you can easily organize your lesson plans by class and date.</p>
+                    </section>
+                    <section>
+                        <h3 className='landing-title'>Keep track of your students' progress</h3>
+                        <p className='landing-text'>[<em>placeholder for screenshot of update screen</em>]</p>
+                        <p className='landing-text'>After class, track your students progress easily within the class plan.</p>
                     </section>
                     <section>
                         <header>
-                            <h3>Keep track of your students' progress</h3>
-                        </header>
-                        <p>[<em>placeholder for screenshot of update screen</em>]</p>
-                        <p>After class, track your students progress easily within the class plan.</p>
-                    </section>
-                    <section>
-                        <header>
-                            <h3>Start Planning Classes Now</h3>
+                            <h3 className='landing-title'>Start Planning Classes Now</h3>
                         </header>
                             <Link to='/registration'>
                                 <button>Sign Up</button>
                              </Link> 
-                            <p>Already have an account?</p>
-                            <form
-                                className='LoginForm'
-                                onSubmit={this.handleSubmitJwtAuth}
-                                >
-
+                            <p className='landing-text'>Already have an account?</p>
+                            <form className='LoginForm' onSubmit={this.handleSubmitJwtAuth} >
+                                <div role='alert'>
+                                    {error && <p className='red'>{error}</p>}
+                                </div>
                                 <div className='user_name'>
                                     <label htmlFor='LoginForm__user_name'>
                                         User name
                                     </label>
-                                    <textarea
-                                        required
-                                        name='user_name'
-                                        id='LoginForm__user_name'>
-                                    </textarea>
+                                    <input required name='user_name' id='LoginForm__user_name'> </input>
                                 </div>
                                 <div className='password'>
                                     <label htmlFor='LoginForm__password'>
                                         Password
                                     </label>
-                                    <textarea
-                                        required
-                                        name='password'
-                                        type='password'
-                                        id='LoginForm__password'>
-                                    </textarea>
+                                    <input required name='password' type='password' id='LoginForm__password'></input>
                                 </div>
                                 <button type='submit'>
                                     Login
@@ -93,7 +82,6 @@ export default class LandingPage extends React.Component{
                             </form>
                     </section>
                 </main>
-                <footer role="contentinfo">Footer</footer>
             </>
 
         )

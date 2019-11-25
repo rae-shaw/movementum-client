@@ -48,25 +48,25 @@ export default class SingleLesson extends React.Component{
                 <>
                     <main role="main">
                         <header>
-                            <h3>{plan.name}</h3>
+                            <h3 className='plan-header'>{plan.name}</h3>
                             <h4>{plan.class_date}</h4>
                         </header>
                         <form onSubmit={this.handleSubmit}>
                             <div className="class-section">
                                 <h4>Warm-Up</h4>
-                                <p>{plan.warm_up}</p>
+                                <p className='text'>{plan.warm_up}</p>
                             </div>
                             <div className="class-section">
                                 <h4>Skills</h4>
-                                <p>{plan.skills}</p>
+                                <p className='text'>{plan.skills}</p>
                             </div>
                             <div className="class-section">
                                 <h4>Notes for Next Class</h4>
-                                <p>{plan.notes}</p>
+                                <p className='text'>{plan.notes}</p>
                             </div>
                             <div className="class-section">
                                 <h4>Student Notes</h4>
-                                <p>{plan.students}</p>
+                                <p className='text'>{plan.students}</p>
                             </div>
                             <Link to={{pathname: `/update-lesson/${this.props.match.params.lessonId}`, state: { plan: this.props.location.state.plan } }}>
                                 <button className='buttons'>Edit</button>

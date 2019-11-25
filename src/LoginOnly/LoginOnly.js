@@ -42,7 +42,7 @@ class LoginOnly extends React.Component{
     render(){
         console.log('Login Page props', this.props)
         console.log('******** props history in LoginOnly',this.props.history)
-       
+       const { error } = this.state
         return(           
             <>
                 <header>
@@ -53,27 +53,25 @@ class LoginOnly extends React.Component{
                         className='LoginForm'
                         onSubmit={this.handleSubmitJwtAuth}
                         >
-
+                        <div role='alert'>
+                            {error && <p className='red'>{error}</p>}
+                        </div>
                         <div className='user_name'>
                             <label htmlFor='LoginForm__user_name'>
                                 User name
                             </label>
-                            <textarea
+                            <input
                                 required
                                 name='user_name'
                                 id='LoginForm__user_name'>
-                            </textarea>
+                            </input>
                         </div>
                         <div className='password'>
                             <label htmlFor='LoginForm__password'>
                                 Password
                             </label>
-                            <textarea
-                                required
-                                name='password'
-                                type='password'
-                                id='LoginForm__password'>
-                            </textarea>
+                            <input required name='password' type='password' id='LoginForm__password'>
+                            </input>
                         </div>
                         <button type='submit'>
                             Login

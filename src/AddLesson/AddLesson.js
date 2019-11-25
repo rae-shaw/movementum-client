@@ -49,19 +49,19 @@ static defaultProps = {
         }
 
         if (e.target['date'].value !== '') {
-            newPlan.class_date = [e.target['date'].value];
+            newPlan.class_date = e.target['date'].value;
         }
         if (e.target['warm-Up'].value !== '') {
-            newPlan.warm_up = [e.target['warm-Up'].value];
+            newPlan.warm_up = e.target['warm-Up'].value;
         }
         if (e.target['skills'].value !== '') {
-            newPlan.skills = [e.target['skills'].value];
+            newPlan.skills = e.target['skills'].value;
         }
         if (e.target['notes'].value !== '') {
-            newPlan.notes = [e.target['notes'].value];
+            newPlan.notes = e.target['notes'].value;
         }
         if (e.target['students'].value !== '') {
-            newPlan.notes = [e.target['students'].value];
+            newPlan.students = e.target['students'].value;
         }
 
         console.log(newPlan)
