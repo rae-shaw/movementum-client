@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PlanApiService from '../services/plan-api-services.js';
 
 
@@ -79,19 +79,16 @@ import PlanApiService from '../services/plan-api-services.js';
 		this.setState({ students: e.target.value })
 	};
 
-
 	render(){
 	    console.log('**********************props in updateLesson', this.props)
 	    console.log('***********', this.state.id)
 	    console.log('****************updatelessonstate)',this.state)
 	    const plan = this.props.location.state.plan
 		return(
-			<>
-				<nav role="navigation" >
-		        </nav>
+			<section className='updateLesson'>
 				<header>
-					<h1 className='fullLessonTitle' >Update Lesson</h1>
-		        	<h3>{plan.name}</h3>
+					<h1 className='fullLessonHeader' >Update Lesson</h1>
+		        	<h3 className='fullLessonHeader'>{plan.name}</h3>
 		        	<p>{plan.class_date}</p>
 		       	</header>
 				<section className ='formSection'>
@@ -127,7 +124,7 @@ import PlanApiService from '../services/plan-api-services.js';
 			          	</div>
 			        </form>
 			    </section>
-			</>
+			</section>
 		)
 	}
 }

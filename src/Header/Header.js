@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 //import { Hyph } from '../Utils/Utils'
 import TokenService from '../services/token-service'
 //import IdleService from '../services/idle-service'
-//import './Header.css'
+import './Header.css'
 
 export default class Header extends Component {
 
@@ -43,12 +43,12 @@ export default class Header extends Component {
     render() {
         console.log('tokenservice!', TokenService.hasAuthToken())
         return (
-            <nav className='Header'>
-                <h1> Movementum </h1>
+            <>
+                <h1 classname='nav-header'> Movementum </h1>
                 {TokenService.hasAuthToken()
                 ? this.renderLogoutLink()
                 : this.renderLogInLink()}
-            </nav>
+            </>
         )
     }
 }

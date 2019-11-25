@@ -31,7 +31,7 @@ export default class AddFolder extends React.Component{
 					Go Back
 					</Link>
 				</button>
-				<h1>{this.state.folder.name}</h1>
+				<h2>{this.state.folder.name}</h2>
 			</ >
 		)
 	}

@@ -46,12 +46,10 @@ export default class SingleLesson extends React.Component{
         const plan = this.props.location.state.plan
             return(
                 <>
-                    <nav role="navigation">Nav</nav>
                     <main role="main">
                         <header>
-                            <h1>{this.state.folder.name}</h1>
-                            <h2>{plan.name}</h2>
-                            <h3>{plan.class_date}</h3>
+                            <h3>{plan.name}</h3>
+                            <h4>{plan.class_date}</h4>
                         </header>
                         <form onSubmit={this.handleSubmit}>
                             <div className="class-section">
@@ -76,7 +74,6 @@ export default class SingleLesson extends React.Component{
                                 <button className='buttons' type="submit">Delete</button>
                         </form>
                     </main>
-                    <footer role="contentinfo">Footer</footer>
                 </>
             )
         }

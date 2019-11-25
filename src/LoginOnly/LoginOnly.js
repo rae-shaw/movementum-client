@@ -46,7 +46,7 @@ class LoginOnly extends React.Component{
         return(           
             <>
                 <header>
-                    <h1>Login to access your plans!</h1>
+                    <h2>Login to access your plans!</h2>
                 </header>
                 <main role="main">
                     <form

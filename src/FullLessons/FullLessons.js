@@ -26,25 +26,23 @@ export default class FullLessons extends React.Component{
     render(){
     
         const plansToRender= this.state.plans.map((plan, i) => (<PlanItem {...plan} key={plan.id} />))
-
         if (this.props.match.path === '/main'){
         console.log('******** STATE!', this.state)
         console.log('******** PROPS!', this.props)
         return(
-            <>
-            
+            <section className ='plansSection'>
                 <section>
                     <header>
                       <h2>Plans</h2>
                     </header>
-                    <div>
+                    <div >
                        {plansToRender}
                     </div>
                     <Link to='newlesson'>
                         <button type='button' >Add Lesson</button>
                     </Link>
                 </section>
-            </>
+            </section>
         )
     }else{
         //console.log('*********** plans.folder_id', plans.folder_id)
@@ -53,19 +51,19 @@ export default class FullLessons extends React.Component{
                 plans.folder_id === +this.props.match.params.folderId)
         const plansToRender= plansFiltered.map((plan,i) => (<PlanItem {...plan} key={plan.id} />))
         return(
-            <>
-                <section>
+            <section className ='plansSection'>
+                <section >
                     <header>
                       <h2>Plans</h2>
                     </header>
-                    <div>
+                    <div >
                        {plansToRender}
                     </div>
                     <Link to='newlesson'>
                         <button type='button' >Add Lesson</button>
                     </Link>
                 </section>
-            </>
+            </section>
         )
     }
     

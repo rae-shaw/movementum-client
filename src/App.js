@@ -40,9 +40,9 @@ class App extends React.Component{
         
         return (
         <>
-            <header className='App__header'>
+            <nav className='App__header'>
                 <Header handleLogout={this.handleLogout}/>
-            </header>
+            </nav>
             <div className='mainSection'>
             <Router>
                 <section className='sidebar'>
@@ -56,7 +56,7 @@ class App extends React.Component{
                     </Switch>
              
                 </section>
-                <main className='main'>
+                <section className='main'>
 
                     <Switch>
                         <Route exact path='/' render={props => 
@@ -73,7 +73,7 @@ class App extends React.Component{
                             (<LoginOnly {...props} handleLogin={this.handleLogin} />)
                         }/>
                     </Switch>
-                </main>
+                </section>
                 </Router>
             </div>
 

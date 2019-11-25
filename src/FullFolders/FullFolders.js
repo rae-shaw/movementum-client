@@ -26,14 +26,14 @@ export default function FullFolders (props){
 	        })
 	}, [folders.length])
 
-	const handleAddFolder = folder => {
-    	setFolders(
-      		[
-        		...folders,
-        		folder
-      		]
-    	)
-  	}
+	// const handleAddFolder = folder => {
+ //    	setFolders(
+ //      		[
+ //        		...folders,
+ //        		folder
+ //      		]
+ //    	)
+ //  	}
 		// const folderContextValue ={
 		// 	folders: folders,
 		// 	addFolder: handleAddFolder
