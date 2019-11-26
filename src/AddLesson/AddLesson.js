@@ -110,7 +110,7 @@ static defaultProps = {
 		            		<label htmlFor="date">Date</label>
 		            		<textarea type="date" name="date" ></textarea>
 		          		</div>
-		          		<div className="form-section">
+		          		<div className="custom-select">
 	            			<label htmlFor="folder">Class</label>
 	            			<select id='folder-id' name = 'folder-id' required>
 	            				<option type = 'number' value={1}>...</option>

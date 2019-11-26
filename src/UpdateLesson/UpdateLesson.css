@@ -1,19 +1,19 @@
 .updateLesson {
 	display:flex;
 	flex-direction: column;
-	background-color: #008a94;
+	background-color: #00565C;
 	min-width: 380px;
 	flex-grow: 2;
 }
 
 .formSection {
-	background-color: #008a94;
+	background-color: #00565C;
 }
 
 .fullLessonHeader {
-	color: #008a94 ;
+	color: #00565C ;
 }
 
 h1 {
-    color: #008a94;
+    color: #00565C;
 }

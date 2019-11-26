@@ -63,7 +63,7 @@ export default class AddFolder extends React.Component{
 		        	<form id="class-plan" onSubmit={this.handleSubmit}>
 		          		<div className="form-section">
 		            		<label htmlFor="folder-name">Folder Name</label>
-		            		<textarea type="text" name="folder-name" placeholder="Class 1" required ></ textarea>
+		            		<textarea type="text" name="folder-name"  placeholder="Class 1" required ></ textarea>
 		          		</div>
 		          			<button className='buttons' type="submit" >Submit</button>
 		          		<Link to='/main'>

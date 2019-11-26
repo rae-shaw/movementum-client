@@ -25,7 +25,7 @@ body {
 
 nav {
   padding: 1% 1% 6% 1%;
-  background-color: #ddd7cf;
+  background-color: #EBEBE5;
 }
 
 nav {
@@ -45,7 +45,7 @@ header {
 }
 
 .mainSection {
-  background-color: #008a94;
+  background-color: #00565C;
   display:flex;
   padding-top: 15%;
   width: 100%;
@@ -70,7 +70,7 @@ h1, h2, h3 {
     
 }
 h1 {
-    color: #008a94;
+    color: #00565C;
 }
 
 h2, h3 {
@@ -83,25 +83,25 @@ h2, h3 {
 }
 
 .main:nth-child(even) {
-  background-color: #ded8ce;
-  color: #008a94;
+  background-color: #EBEBE5;
+  color: #00565C;
   display: flex;
   flex-direction: column;
 }
 
 .main:nth-child(even) button {
-  background-color: #008a94;
-  color: #ded8ce;
+  background-color: #00565C;
+  color: #EBEBE5;
 }
 
 .main:nth-child(even) h2 {
-  color: #008a94;
+  color: #00565C;
 }
 
 .buttons {
     display: flex;
     flex-direction: row;
-    background-color: #ded8ce;
+    background-color: #EBEBE5;
     border-radius: 4px;
     margin: 2px;
     align-items: center;
@@ -147,7 +147,7 @@ h2, h3 {
     padding: 5px 8px;
     border: none;
     box-shadow: none;
-    background: #ded8ce;
+    background: #EBEBE5;
     background-image: none;
     -webkit-appearance: none;
 }
