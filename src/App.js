@@ -21,6 +21,7 @@ import './App.css';
 class App extends React.Component{
     state ={
         loggedIn: false
+        //updated: false
     }
 
     static defaultProps = {
@@ -37,6 +38,14 @@ class App extends React.Component{
     handleLogout = () => {
         this.setState({ loggedIn: false })
     }
+
+   //  handleUpdate = () => {
+   //      this.setState({ updated: true })
+   // }
+
+   //  handleToggle = () => {
+   //      this.setState({ updated: false })
+   // }
 
     render(){
         
@@ -65,10 +74,14 @@ class App extends React.Component{
                             (<LandingPage {...props} handleLogin={this.handleLogin} />)
                         }/>
                         <PrivateRoute path='/addfolder' component={AddFolder} />
-                        <PrivateRoute exact path='/main' component={FullLessons} />
+                        <PrivateRoute exact path='/main' render= {props=>
+                            (<FullLessons {...props} handdleToggle={this.handleToggle} handleUpdate= {this.handleUpdate}/>)
+                        }/>
                         <PrivateRoute path='/newlesson' component = {AddLesson}/>
                         <PrivateRoute path='/lesson/:lessonId' component = {SingleLesson} />
-                        <PrivateRoute path='/main/:folderId' component = {FullLessons}/>
+                        <PrivateRoute path='/main/:folderId' render= {props=>
+                            (<FullLessons {...props} handdleToggle={this.handleToggle} handleUpdate= {this.handleUpdate}/>)
+                        }/>
                         <PrivateRoute path='/update-lesson/:lessonId' component={UpdateLesson}/>
                         <Route path='/registration' component={Registration}/>
                         <PublicRoute path='/login' render={props => 

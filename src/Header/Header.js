@@ -8,6 +8,11 @@ import './Header.css'
 
 export default class Header extends Component {
 
+    constructor(props){
+    super(props)
+    this.viewForm = React.createRef()
+}
+
     static defaultProps = {
         history: {
           push: () => { }
@@ -23,10 +28,8 @@ export default class Header extends Component {
     renderLogoutLink() {
         return (
             <div className='Header__logged-in'>
-                <Link
-                    onClick={this.handleLogoutClick}
-                    to='/'>
-                    Logout
+                <Link className='header-link' onClick={this.handleLogoutClick} to='/'>
+                    <button type='button' className='buttons' id='logout-button'>Logout</button>
                 </Link>
              </div>
         )
@@ -35,7 +38,7 @@ export default class Header extends Component {
     renderLogInLink() {
         return (
             <div className='Header__not-logged-in'>
-               <p className='text'>Welcome</p>
+                <p>Welcome</p>
             </div>
         )
     }
@@ -44,7 +47,7 @@ export default class Header extends Component {
         console.log('tokenservice!', TokenService.hasAuthToken())
         return (
             <>
-                <h1 classname='nav-header'> Movementum </h1>
+                <h1 className='nav-header'> Movementum </h1>
                 {TokenService.hasAuthToken()
                 ? this.renderLogoutLink()
                 : this.renderLogInLink()}

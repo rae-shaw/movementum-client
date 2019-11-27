@@ -11,21 +11,25 @@ main{
 a:link {
   font-family: 'Vollkorn', serif;
   text-decoration: none;
+  font-size: 1.5em;
 }
 
 body {
-    display: flex;
-    font-family: 'Vollkorn', serif;
-    font-size: 20px;
-    background-color: #606060;
-    text-align: center;
-    line-height: 1.5;
-
+  display: flex;
+  font-family: 'Vollkorn', serif;
+  font-size: 1.5em;
+  background-color: #606060;
+  text-align: center;
+  line-height: 1.5;
 }
 
 nav {
-  padding: 1% 1% 6% 1%;
+  padding: 1% 1% 1% 1%;
   background-color: #EBEBE5;
+}
+
+.nav-header {
+  margin: 0px;
 }
 
 nav {
@@ -35,19 +39,17 @@ nav {
   right: 0;
   z-index: 10;
   border-bottom: #606060 solid 2px;
-  max-height: 100px;
-
 }
 
 header {
-  margin-top: 100px;
+  margin-top: 125px;
   padding: 12% 0 0 0;
 }
 
 .mainSection {
   background-color: #00565C;
   display:flex;
-  padding-top: 15%;
+  padding-top: 12%;
   width: 100%;
 }
 
@@ -67,6 +69,7 @@ header {
 
 h1, h2, h3 {
   font-family: 'Unica One', cursive;
+  font-size: 2em;
     
 }
 h1 {
@@ -99,7 +102,6 @@ h2, h3 {
 }
 
 .buttons {
-    display: flex;
     flex-direction: row;
     background-color: #EBEBE5;
     border-radius: 4px;
@@ -134,18 +136,19 @@ h2, h3 {
 .custom-select {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border: 5px #ddd7cf;
-    width: 100px;
+    align-self: center;
+    border: 5px #606060;
+    width: 150px;
     border-radius: 8px 8px 8px 8px;
     margin: 3px;
     overflow: hidden;
-    justify-content: center;
 }
 
 .custom-select select {
-    padding: 5px 8px;
-    border: none;
+    padding: 5px 5px;
+    border: 2px solid #606060;
+    width: 150px;
+    text-align: center;
     box-shadow: none;
     background: #EBEBE5;
     background-image: none;
@@ -164,8 +167,30 @@ h2, h3 {
 }
 
 .customForm {
-    width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.updateLessonTitle{
+  color: #00565C;
+  font-size: 1.2em;
+}
+
+.singleFolderTitle{
+  font-size: 1.5em;
+}
+
+.fullLessonHeader {
+  margin: .2em;
+}
+
+.addLessonHeader {
+  margin: 0px;
+}
+
+#class-plan {
+  display:flex;
+  flex-direction: column;
+}
+

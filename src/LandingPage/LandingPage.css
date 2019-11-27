@@ -1,7 +1,14 @@
 .landing-title {
 	color: #00565C;
+	font-size: 1em;
+	margin: .2em;
 }
 
 .landing-text {
 	color: #606060;
+	margin: .2em;
+}
+
+.landing-header {
+	font-size: 1.5em;
 }

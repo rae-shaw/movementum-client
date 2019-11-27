@@ -1,3 +1,18 @@
 .nav-header {
 	color: #00565C;
+	
+}
+
+.header-link{
+	font-size: .5em;
+}
+
+#logout-button {
+	background-color:#00565C;
+	color: #EBEBE5;
+}
+
+p {
+	font-size: .8em;
+	margin: 0px;
 }

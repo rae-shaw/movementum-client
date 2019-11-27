@@ -1,6 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PlanApiService from '../services/plan-api-services.js';
+import FolderApiService from '../services/folder-api-services.js';
 
 
  class UpdateLesson extends React.Component {
@@ -14,10 +15,11 @@ import PlanApiService from '../services/plan-api-services.js';
 	    	skills: '',
 	    	warm_up:'',
 	    	notes: '',
-	    	students: ''
+	    	students: '',
+	    	folders: []
 	    };
-	}
 
+	}
 
 	componentDidMount() {
 
@@ -26,16 +28,25 @@ import PlanApiService from '../services/plan-api-services.js';
 	    	this.setState({
 	          	id: responseData.id,
 	          	folder_id: responseData.folder_id,
-	          	skills: responseData.skills,
-	          	warm_up: responseData.warm_up,
-	          	notes: responseData.notes,
-	          	students: responseData.video
+	          	skills: responseData.skills || '',
+	          	warm_up: responseData.warm_up || '',
+	          	notes: responseData.notes || '',
+	          	students: responseData.students || ''
 	    	})
 	  	})
-	  	.catch(error => {
-	    	console.error(error)
-	    	this.setState({ error })
-	  	})
+	  	.then( () => {
+	       	FolderApiService.getFolders()
+	        .then(folderData => {
+	        	console.log('****folderData in update lesson', folderData)
+	            this.setState({
+	                folders: folderData
+	            })
+	        })
+	    })
+	    .catch(error => {
+	        console.error(error)
+	        this.setState({ error })
+	    })
 	}
 
 	handleSubmit = e => {
@@ -79,21 +90,30 @@ import PlanApiService from '../services/plan-api-services.js';
 	    console.log('***********', this.state.id)
 	    console.log('****************updatelessonstate)',this.state)
 	    const plan = this.props.location.state.plan
+	    const folders = this.state.folders
+	    const update_class_date= new Date(plan.class_date)
 		return(
 			<section className='updateLesson'>
 				<header>
-					<h1 className='fullLessonHeader' >Update Lesson</h1>
-		        	<h3 className='fullLessonHeader'>{plan.name}</h3>
-		        	<p>{plan.class_date}</p>
+					<h3 className='updateLessonTitle'>{plan.name}</h3>
+		        	<p>{update_class_date.toDateString()}</p>
+		        	<Link id = 'link-to-main' to={`/main`}>
+						<button className='buttons' type='button'> Go Back </button>
+					</Link>
 		       	</header>
-				<section className ='formSection'>
-			        <form className='customForm' id="updateLesson" onSubmit={this.handleSubmit}>
+				<section>
+			        <form className='customForm' onSubmit={this.handleSubmit}>
 			          	<div className="custom-select">
 			            	<label htmlFor="folder-select">
 			            		Folder
 			            	</label>
 			            	<select id='folder-select' name='folder-id'  onChange={this.handleChangeFolder} value={this.state.folder_id}>
-				            	<option value={null}>...</option>
+				            	<option type = 'number' value={this.state.folder_id}>...</option>
+	              				{folders.map(folder =>
+                                <option key={folder.id} value={folder.id}>
+                                    {folder.name}
+                                </option>
+                            )}
 				            </select >
 			        	</div>
 			        	<div className="form-section">
@@ -116,6 +136,7 @@ import PlanApiService from '../services/plan-api-services.js';
 		       			<div className = 'buttonRow'>
 			          		<button className='buttons' type="submit">Submit</button>
 			          		<button className='buttons' type="reset">Reset</button>
+
 			          	</div>
 			        </form>
 			    </section>

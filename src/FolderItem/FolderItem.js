@@ -2,26 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 //import FolderContext from '../FolderContext.js';
 import './FolderItem.css';
-//import Moment from 'react-moment';
+import PropTypes from 'prop-types';
 
 
 
 
 export default class FolderItem extends React.Component{
+	//const className = 'folders-item' + (props.highlighted ? ' highlighted' : '');
 	//static contextType = FolderContext;
 	render(){
 		console.log('this.props.id', this.props.id)
 		const foldersPath= `/main/${this.props.id}`
+		const date_created= new Date(this.props.date_created)
+		console.log('date_created', date_created)
 		console.log(foldersPath)
-		const className = 'folders-item' + (this.props.highlighted ? ' highlighted' : '');
+		const className = 'folderItem' + (this.props.highlighted ? ' highlighted' : '');
+		console.log('highlighted', this.props.highlighted)
 		return(
 				< >
-					<section className= 'folderItem'>
+					<section>
 						<Link className= {className} to={foldersPath}>
-					    	<h3 className= 'header'>{this.props.name}</h3>
+					    	<h3 className='singleFolderTitle'>{this.props.name}</h3>
 					    	
 					    </Link>
-					    <p className= 'folder-item'>{this.props.date_created} </p>
+					    <p>{date_created.toDateString()}</p>
 					 </section>
 				</ >
 			)

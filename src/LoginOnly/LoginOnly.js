@@ -63,15 +63,13 @@ class LoginOnly extends React.Component{
                             <input
                                 required
                                 name='user_name'
-                                id='LoginForm__user_name'>
-                            </input>
+                                id='LoginForm__user_name'/>
                         </div>
                         <div className='password'>
                             <label htmlFor='LoginForm__password'>
                                 Password
                             </label>
-                            <input required name='password' type='password' id='LoginForm__password'>
-                            </input>
+                            <input required name='password' type='password' id='LoginForm__password'/>
                         </div>
                         <button type='submit'>
                             Login

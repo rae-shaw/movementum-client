@@ -29,6 +29,7 @@ export default class SingleLesson extends React.Component{
         const planId = this.props.match.params.lessonId
         PlanApiService.deletePlan(planId)
         .then(() => {
+            this.setState({ state: this.state });
             this.props.history.push(`/main`)
         })
 
@@ -42,14 +43,14 @@ export default class SingleLesson extends React.Component{
         
         const planLink = `/update-lesson/${this.props.match.params.lessonId}`
         console.log('planLink', planLink)
-
         const plan = this.props.location.state.plan
+        const class_date= new Date(plan.class_date)
             return(
                 <>
                     <main role="main">
                         <header>
-                            <h3 className='plan-header'>{plan.name}</h3>
-                            <h4>{plan.class_date}</h4>
+                            <h3 className='updateLessonTitle'>{plan.name}</h3>
+                            <h4>{class_date.toDateString()}</h4>
                         </header>
                         <form onSubmit={this.handleSubmit}>
                             <div className="class-section">

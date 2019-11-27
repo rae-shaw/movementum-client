@@ -5,6 +5,10 @@ import TokenService from '../services/token-service';
 import'./LandingPage.css'
 
 export default class LandingPage extends React.Component{
+    constructor(props){
+    super(props)
+    this.viewLogin = React.createRef()
+}
 
 
     state = { error: null }
@@ -37,30 +41,23 @@ export default class LandingPage extends React.Component{
             <>
                 <main role="main">
                     <header role="banner">
-                        <h1>Movementum</h1>
-                        <h2 className='landing-title'>A class planning tool designed by and for movement instructors.</h2>
+                        <h2 className='landing-header'>A class planning tool designed by and for movement instructors.</h2>
                     </header>
                     <section>
-                        <header>
-                            <h3 className='landing-title'>Create folders for classes</h3>
-                        </header>
-                        <p className='landing-text'>placeholder for screenshot of folder with plans</p>
+                        <h3 className='landing-title'>Create folders for classes</h3>
                         <p className='landing-text'>With Movementum, you can easily organize your lesson plans by class and date.</p>
                     </section>
                     <section>
                         <h3 className='landing-title'>Keep track of your students' progress</h3>
-                        <p className='landing-text'>[<em>placeholder for screenshot of update screen</em>]</p>
                         <p className='landing-text'>After class, track your students progress easily within the class plan.</p>
                     </section>
                     <section>
-                        <header>
                             <h3 className='landing-title'>Start Planning Classes Now</h3>
-                        </header>
                             <Link to='/registration'>
                                 <button>Sign Up</button>
                              </Link> 
                             <p className='landing-text'>Already have an account?</p>
-                            <form className='LoginForm' onSubmit={this.handleSubmitJwtAuth} >
+                            <form className='LoginForm' id='login-form' ref = {this.viewLogin} onSubmit={this.handleSubmitJwtAuth} >
                                 <div role='alert'>
                                     {error && <p className='red'>{error}</p>}
                                 </div>
@@ -68,13 +65,13 @@ export default class LandingPage extends React.Component{
                                     <label htmlFor='LoginForm__user_name'>
                                         User name
                                     </label>
-                                    <input required name='user_name' id='LoginForm__user_name'> </input>
+                                    <input required name='user_name' id='LoginForm__user_name'/> 
                                 </div>
                                 <div className='password'>
                                     <label htmlFor='LoginForm__password'>
                                         Password
                                     </label>
-                                    <input required name='password' type='password' id='LoginForm__password'></input>
+                                    <input required name='password' type='password' id='LoginForm__password'/>
                                 </div>
                                 <button type='submit'>
                                     Login

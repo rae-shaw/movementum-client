@@ -26,20 +26,7 @@ export default function FullFolders (props){
 	        })
 	}, [folders.length])
 
-	// const handleAddFolder = folder => {
- //    	setFolders(
- //      		[
- //        		...folders,
- //        		folder
- //      		]
- //    	)
- //  	}
-		// const folderContextValue ={
-		// 	folders: folders,
-		// 	addFolder: handleAddFolder
-		// }
 		if (props.match.path === '/main'){
-		
 		const foldersToRender= folders.map((folder, i) => {
 			const folderIdPath=`main/${folder.id}`
 			return(<FolderItem {...folder} key={folder.id} folderIdPath ={folderIdPath}/>)
@@ -50,42 +37,38 @@ export default function FullFolders (props){
 		//console.log('State', this.state)
 
 		return(
-			<main>
-		    	<section>
-		        	<header>
-		            	<h2>Folders</h2>
-		        	</header>
-		        	<div>
-		        	{foldersToRender}
-		        	</div>
-		        	<Link to = '/addfolder'>
-		        		<button type='button' className='buttons'>Add Folder</button>
-		        	</Link>
-		      	</section>
-			</main>
+	    	<section>
+	        	<header>
+	            	<h2>Folders</h2>
+	        	</header>
+	        	<div>
+	        	{foldersToRender}
+	        	</div>
+	        	<Link to = '/addfolder'>
+	        		<button type='button' className='buttons'>Add Folder</button>
+	        	</Link>
+	      	</section>
 		)
 	}else{
 
 		const currentFolder = props.match.params.folderId;
 		console.log('currentFolder', currentFolder)
 		const foldersToRender = folders.map((folder, i) => {
-			const folderIdPath=`main/${folder.id}`
+			const folderIdPath=`/main/${folder.id}`
 			return (<FolderItem{...folder} highlighted = {currentFolder === folder.id} key={i} folderIdPath={folderIdPath} />)
 		})
 		return(
-			<main>
-		    	<section>
-		        	<header>
-		            	<h2>Folders</h2>
-		        	</header>
-		        	<div>
-		        	{foldersToRender}
-		        	</div>
-		        	<Link to = '/addfolder'>
-		        		<button type='button' className='buttons'>Add Folder</button>
-		        	</Link>
-		      	</section>
-			</main>
+	    	<section>
+	        	<header>
+	            	<h2>Folders</h2>
+	        	</header>
+	        	<div>
+	        	{foldersToRender}
+	        	</div>
+	        	<Link to = '/addfolder'>
+	        		<button type='button' >Add Folder</button>
+	        	</Link>
+	      	</section>
 		)
 	
 	}

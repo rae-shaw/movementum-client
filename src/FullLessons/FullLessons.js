@@ -6,15 +6,17 @@ import PlanItem from '../PlanItem/PlanItem.js';
 //import PlanContext from '../PlanContext.js';
 
 export default class FullLessons extends React.Component{
+
     state={
         plans:[]
     }
+
     componentDidMount(){
         //get all the plans from the DB
         PlanApiService.getPlans()
         .then(planData => {
             this.setState({
-                plans: planData
+                plans: planData,
             })
         })
         .catch(error => {
@@ -24,10 +26,10 @@ export default class FullLessons extends React.Component{
     }
     
     render(){
-    
-        const plansToRender= this.state.plans.map((plan, i) => (<PlanItem {...plan} key={plan.id} />))
+        const plansToRender= this.state.plans.map((plan, i) => (<PlanItem {...plan} handleUpdate={this.props.handleUpdate} plans={this.state.plans} key={plan.id} />))
+        
         if (this.props.match.path === '/main'){
-        console.log('******** STATE!', this.state)
+        console.log('******** STATE!', this.state.plans)
         console.log('******** PROPS!', this.props)
         return(
             <section className ='plansSection'>
@@ -38,18 +40,20 @@ export default class FullLessons extends React.Component{
                     <div >
                        {plansToRender}
                     </div>
-                    <Link to='newlesson'>
+                    <Link to='/newlesson'>
                         <button type='button' >Add Lesson</button>
                     </Link>
                 </section>
             </section>
         )
     }else{
-        //console.log('*********** plans.folder_id', plans.folder_id)
-        console.log('************** props in full lesson filtered', this.props)
+        console.log('******** STATE! in else', this.state.plans)
+        console.log('******** PROPS!', this.props)
         const plansFiltered = this.state.plans.filter(plans =>
-                plans.folder_id === +this.props.match.params.folderId)
-        const plansToRender= plansFiltered.map((plan,i) => (<PlanItem {...plan} key={plan.id} />))
+                plans.folder_id == +this.props.match.params.folderId)
+        const plansToRender= plansFiltered.map((plan,i) => (<PlanItem {...plan} plans={plansFiltered} key={plan.id} />))
+        console.log('********plans to render in else', plansToRender)
+        console.log('********plans filtered in else', plansFiltered)
         return(
             <section className ='plansSection'>
                 <section >
@@ -59,8 +63,8 @@ export default class FullLessons extends React.Component{
                     <div >
                        {plansToRender}
                     </div>
-                    <Link to='newlesson'>
-                        <button type='button' >Add Lesson</button>
+                    <Link to='/newlesson'>
+                        <button type='button'>Add Lesson</button>
                     </Link>
                 </section>
             </section>
