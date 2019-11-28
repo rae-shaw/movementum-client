@@ -1,61 +1,59 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 main{
-  font-family: 'Vollkorn', serif;
-  /*display: flex;*/
-  /*color:#ddd7cf;*/
+    font-family: 'Vollkorn', serif;
 }
 
 a:link {
-  font-family: 'Vollkorn', serif;
-  text-decoration: none;
-  font-size: 1.5em;
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    font-size: 1.5em;
 }
 
 body {
-  display: flex;
-  font-family: 'Vollkorn', serif;
-  font-size: 1.5em;
-  background-color: #606060;
-  text-align: center;
-  line-height: 1.5;
+    display: flex;
+    font-family: 'Vollkorn', serif;
+    font-size: 1.5em;
+    background-color: #606060;
+    text-align: center;
+    line-height: 1.5;
 }
 
 nav {
-  padding: 1% 1% 1% 1%;
-  background-color: #EBEBE5;
+    padding: 1% 1% 1% 1%;
+    background-color: #EBEBE5;
 }
 
 .nav-header {
-  margin: 0px;
+    margin: 0px;
 }
 
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  border-bottom: #606060 solid 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: #606060 solid 2px;
 }
 
 header {
-  margin-top: 125px;
-  padding: 12% 0 0 0;
+    margin-top: 125px;
+    padding: 12% 0 0 0;
 }
 
 .mainSection {
-  background-color: #00565C;
-  display:flex;
-  padding-top: 12%;
-  width: 100%;
+    background-color: #00565C;
+    display:flex;
+    padding-top: 12%;
+    width: 100%;
 }
 
 .sidebar {
-  flex:1;
-  padding: 5%;
+    flex:1;
+    padding: 5%;
 }
 
 .sidebar:empty {
@@ -68,10 +66,10 @@ header {
 }
 
 h1, h2, h3 {
-  font-family: 'Unica One', cursive;
-  font-size: 2em;
-    
+    font-family: 'Unica One', cursive;
+    font-size: 2em;   
 }
+
 h1 {
     color: #00565C;
 }
@@ -81,24 +79,24 @@ h2, h3 {
 }
 
 .main{
-  flex:2;
-  padding: 5%;
+    flex:2;
+    padding: 5%;
 }
 
 .main:nth-child(even) {
-  background-color: #EBEBE5;
-  color: #00565C;
-  display: flex;
-  flex-direction: column;
+    background-color: #EBEBE5;
+    color: #00565C;
+    display: flex;
+    flex-direction: column;
 }
 
 .main:nth-child(even) button {
-  background-color: #00565C;
-  color: #EBEBE5;
+    background-color: #00565C;
+    color: #EBEBE5;
 }
 
 .main:nth-child(even) h2 {
-  color: #00565C;
+    color: #00565C;
 }
 
 .buttons {
@@ -107,7 +105,7 @@ h2, h3 {
     border-radius: 4px;
     margin: 2px;
     align-items: center;
-}
+    }
 
 .buttonRow {
     display: flex;
@@ -155,11 +153,8 @@ h2, h3 {
     -webkit-appearance: none;
 }
 
-.text-area{
-    background-color: #ddd7cf;
-}
 .text{
-  color:#606060;
+    color:#606060;
 }
 
 .custom-select select:focus {
@@ -173,24 +168,24 @@ h2, h3 {
 }
 
 .updateLessonTitle{
-  color: #00565C;
-  font-size: 1.2em;
+    color: #00565C;
+    font-size: 1.2em;
 }
 
 .singleFolderTitle{
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .fullLessonHeader {
-  margin: .2em;
+    margin: .2em;
 }
 
 .addLessonHeader {
-  margin: 0px;
+    margin: 0px;
 }
 
 #class-plan {
-  display:flex;
-  flex-direction: column;
+    display:flex;
+    flex-direction: column;
 }
 

@@ -1,8 +1,13 @@
 .folderItem {
-	color: #ddd7cf;
-	background-color: white;
+	color: #ddd7cf;	
 }
 
-.highlighted {
-	background-color: grey;
+.folderItemSection {
+	border: solid grey 2px;
+	background-color: #00565C;
+	color: #ddd7cf;
+}
+
+.folderItemP {
+	color: #ddd7cf;
 }

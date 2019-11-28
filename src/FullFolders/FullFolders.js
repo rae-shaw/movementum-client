@@ -31,11 +31,6 @@ export default function FullFolders (props){
 			const folderIdPath=`main/${folder.id}`
 			return(<FolderItem {...folder} key={folder.id} folderIdPath ={folderIdPath}/>)
 		})
-		console.log('*******', foldersToRender)
-
-		//console.log('CONTEXT', context.folders)
-		//console.log('State', this.state)
-
 		return(
 	    	<section>
 	        	<header>
@@ -52,10 +47,9 @@ export default function FullFolders (props){
 	}else{
 
 		const currentFolder = props.match.params.folderId;
-		console.log('currentFolder', currentFolder)
 		const foldersToRender = folders.map((folder, i) => {
 			const folderIdPath=`/main/${folder.id}`
-			return (<FolderItem{...folder} highlighted = {currentFolder === folder.id} key={i} folderIdPath={folderIdPath} />)
+			return (<FolderItem{...folder} highlighted = {currentFolder == folder.id} key={i} folderIdPath={folderIdPath} />)
 		})
 		return(
 	    	<section>

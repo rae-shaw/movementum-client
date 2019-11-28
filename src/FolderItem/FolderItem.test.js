@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import FolderItem from './FolderItem';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 it('renders without crashing', () => {
- 	const div = document.createElement('div');
- 	ReactDOM.render(<Router> <App /> </Router>, div);
- 	ReactDOM.unmountComponentAtNode(div);
+	const div = document.createElement('div');
+	ReactDOM.render(<Router><FolderItem /></Router>, div);
+	ReactDOM.unmountComponentAtNode(div);
 });

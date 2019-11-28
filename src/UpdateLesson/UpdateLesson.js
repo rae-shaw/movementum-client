@@ -6,7 +6,6 @@ import FolderApiService from '../services/folder-api-services.js';
 
  class UpdateLesson extends React.Component {
 
-
 	constructor(props) {
   	super(props);
 	    this.state = { 
@@ -18,7 +17,6 @@ import FolderApiService from '../services/folder-api-services.js';
 	    	students: '',
 	    	folders: []
 	    };
-
 	}
 
 	componentDidMount() {
@@ -37,7 +35,6 @@ import FolderApiService from '../services/folder-api-services.js';
 	  	.then( () => {
 	       	FolderApiService.getFolders()
 	        .then(folderData => {
-	        	console.log('****folderData in update lesson', folderData)
 	            this.setState({
 	                folders: folderData
 	            })
@@ -57,12 +54,11 @@ import FolderApiService from '../services/folder-api-services.js';
 
 	    PlanApiService.patchPlan(updatedSkill)
 	    .then(() => {
-	    	console.log('**********updatedSkill', updatedSkill)
 	    	this.props.history.push(`/main`)
 	    })
 	    .catch(
-	    	//error => { console.error({ error }) }
-	    	)
+	    	error => { console.error({ error }) }
+	    )
 	}
 
 	handleChangeFolder = e => {
@@ -86,9 +82,6 @@ import FolderApiService from '../services/folder-api-services.js';
 	};
 
 	render(){
-	    console.log('**********************props in updateLesson', this.props)
-	    console.log('***********', this.state.id)
-	    console.log('****************updatelessonstate)',this.state)
 	    const plan = this.props.location.state.plan
 	    const folders = this.state.folders
 	    const update_class_date= new Date(plan.class_date)
@@ -96,7 +89,7 @@ import FolderApiService from '../services/folder-api-services.js';
 			<section className='updateLesson'>
 				<header>
 					<h3 className='updateLessonTitle'>{plan.name}</h3>
-		        	<p>{update_class_date.toDateString()}</p>
+		        	<p className='updateLessonP'>{update_class_date.toDateString()}</p>
 		        	<Link id = 'link-to-main' to={`/main`}>
 						<button className='buttons' type='button'> Go Back </button>
 					</Link>
