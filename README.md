@@ -6,6 +6,13 @@ Summary
 Movementum is a class planning tool designed by and for movement instructors. It fills a gap in class and lesson planning specifically for movement instructors, like dance, yoga, and aerial arts instructors.
 Instructors can create folders for classes and organize their lesson plans by class. Instructors can keep track of your students' progress.
 
+Test user info
+--------------
+
+test user: test-user7
+password: Password1!
+
+
 Screenshots
 -----------
 ![Landing Page](MovementumLandingPage.png "Landing Page")

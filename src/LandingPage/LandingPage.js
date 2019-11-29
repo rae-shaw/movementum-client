@@ -55,6 +55,7 @@ export default class LandingPage extends React.Component{
                             <button>Sign Up</button>
                          </Link> 
                         <p className='landing-text'>Already have an account?</p>
+                        <p className='landing-text'>See README.md for test user credentials </p>
                         <form className='LoginForm' id='login-form' ref = {this.viewLogin} onSubmit={this.handleSubmitJwtAuth} >
                             <div role='alert'>
                                 {error && <p className='red'>{error}</p>}
