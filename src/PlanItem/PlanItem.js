@@ -16,11 +16,11 @@ export default class PlanItem extends React.Component{
 		return(
 				< >
 					<section>
-					    <Link to= {{ pathname: `/lesson/${this.props.id}`, state: { plan: this.props } }} >
-					    	<h3 className='updateLessonTitle'>{this.props.name}</h3>
-					    </Link>
+						<h3 className='plan-header'>{this.props.name}</h3>
 					    	<p className= 'plan-date'>{date_created_plan.toDateString()}</p> 
-					    
+					    <Link to= {{ pathname: `/lesson/${this.props.id}`, state: { plan: this.props } }} >
+					    	 <button type='button'>See Full Plan</button>
+					    </Link>
 					 </section>
 				</ >
 			)
