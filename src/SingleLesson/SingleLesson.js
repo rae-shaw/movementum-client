@@ -37,10 +37,6 @@ export default class SingleLesson extends React.Component{
     }
 
     render(){
-        console.log('props in single lesson', this.props)
-        
-        const planLink = `/update-lesson/${this.props.match.params.lessonId}`
-        console.log('planLink', planLink)
         const plan = this.props.location.state.plan
         const class_date= new Date(plan.class_date)
             return(
@@ -67,7 +63,7 @@ export default class SingleLesson extends React.Component{
                                 <h4>Student Notes</h4>
                                 <p className='text'>{plan.students}</p>
                             </div>
-                            <Link to={{pathname: `/update-lesson/${this.props.match.params.lessonId}`, state: { plan: this.props.location.state.plan } }}>
+                            <Link to={ `/update-lesson/${this.props.match.params.lessonId}` }>
                                 <button className='buttons'>Edit</button>
                             </Link>
                                 <button className='buttons' type="submit">Delete</button>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import FolderContext from '../FolderContext.js';
 import PlanApiService from '../services/plan-api-services';
 import FolderApiService from '../services/folder-api-services';
 
@@ -12,8 +11,6 @@ static defaultProps = {
 	    },
 	}
 
-	//static contextType = FolderContext;
-
 	constructor(props) {
     	super(props);
     	this.state = {
@@ -21,37 +18,16 @@ static defaultProps = {
         		value: "",
         		touched: false
       		},
-            folders: [],
-            //error: null
+            folders: []
       	}
     }
 
-
-	// updateName(name) {
- //    	this.setState({ name: { value: name, touched: true } });
- //  	}
-
- //  	validateName() {
- //    	const name = this.state.name.value.trim();
- //    		if (name.length === 0) {
- //      			return "Name is required";
- //    		}
- //    		 else if (name.length < 3 || name.length > 12) {
- //      			return 'Folder name must be between 3 and 12 characters long';
- //      		}
- //  	}
-
   	handleSubmit = e => {
         e.preventDefault()
-        console.log('IN handleSubmit!')
         
         let newPlan = {
             name: e.target['name'].value,
             folder_id: e.target['folder-id'].value 
-        }
-
-        if (e.target['folder-id'].value == undefined){
-
         }
 
         if (e.target['date'].value !== '') {
@@ -70,11 +46,8 @@ static defaultProps = {
             newPlan.students = e.target['students'].value;
         }
 
-        console.log(newPlan)
         PlanApiService.postPlan(newPlan)
-
         .then((plan) => {
-        	console.log('NEWPLAN', plan)
             this.props.history.push(`/main`)
         })
         .catch(res => {
@@ -95,15 +68,9 @@ static defaultProps = {
             this.setState({ error })
         })
     }
-                            /*<div role='alert'>
-                            {error && <p className='red'>{[error]}</p>}
-                        </div>*/
 
     render(){
     	const folders=this.state.folders
-         //const { error } = this.state
-    	console.log('********Props', this.props)
-    	console.log('add lesson state', this.state.error)
         return(
             <>
 		      	<header>
@@ -112,7 +79,6 @@ static defaultProps = {
                         <button type="reset">Back</button>
                     </Link>
 		      	</header>
-
 		      	<section>
 		        	<form className ='customForm' onSubmit={this.handleSubmit}>
 		          		<div className="form-names">
@@ -128,10 +94,10 @@ static defaultProps = {
 	            			<select id='folder-id' name = 'folder-id' required >
 	            				<option type = 'number' value={null}>...</option>
 	              				{folders.map(folder =>
-                                <option key={folder.id} value={folder.id}>
-                                    {folder.name}
-                                </option>
-                            )}
+                                    <option key={folder.id} value={folder.id}>
+                                        {folder.name}
+                                    </option>
+                                )}
 	            			</select>
 		          		</div>
 		          		<div className="form-section">

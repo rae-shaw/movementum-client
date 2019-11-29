@@ -10,7 +10,6 @@ export default class LandingPage extends React.Component{
     this.viewLogin = React.createRef()
 }
 
-
     state = { error: null }
 
     handleSubmitJwtAuth = ev => {
@@ -36,7 +35,6 @@ export default class LandingPage extends React.Component{
 
     render(){
         const { error } = this.state
-        console.log('LandingPage props', this.props)
         return(
             <>
                 <main role="main">
@@ -52,31 +50,31 @@ export default class LandingPage extends React.Component{
                         <p className='landing-text'>After class, track your students progress easily within the class plan.</p>
                     </section>
                     <section>
-                            <h3 className='landing-title'>Start Planning Classes Now</h3>
-                            <Link to='/registration'>
-                                <button>Sign Up</button>
-                             </Link> 
-                            <p className='landing-text'>Already have an account?</p>
-                            <form className='LoginForm' id='login-form' ref = {this.viewLogin} onSubmit={this.handleSubmitJwtAuth} >
-                                <div role='alert'>
-                                    {error && <p className='red'>{error}</p>}
-                                </div>
-                                <div className='user_name'>
-                                    <label htmlFor='LoginForm__user_name'>
-                                        User name
-                                    </label>
-                                    <input required name='user_name' id='LoginForm__user_name'/> 
-                                </div>
-                                <div className='password'>
-                                    <label htmlFor='LoginForm__password'>
-                                        Password
-                                    </label>
-                                    <input required name='password' type='password' id='LoginForm__password'/>
-                                </div>
-                                <button type='submit'>
-                                    Login
-                                </button>
-                            </form>
+                        <h3 className='landing-title'>Start Planning Classes Now</h3>
+                        <Link to='/registration'>
+                            <button>Sign Up</button>
+                         </Link> 
+                        <p className='landing-text'>Already have an account?</p>
+                        <form className='LoginForm' id='login-form' ref = {this.viewLogin} onSubmit={this.handleSubmitJwtAuth} >
+                            <div role='alert'>
+                                {error && <p className='red'>{error}</p>}
+                            </div>
+                            <div className='user_name'>
+                                <label htmlFor='LoginForm__user_name'>
+                                    User name
+                                </label>
+                                <input required name='user_name' id='LoginForm__user_name'/> 
+                            </div>
+                            <div className='password'>
+                                <label htmlFor='LoginForm__password'>
+                                    Password
+                                </label>
+                                <input required name='password' type='password' id='LoginForm__password'/>
+                            </div>
+                            <button type='submit'>
+                                Login
+                            </button>
+                        </form>
                     </section>
                 </main>
             </>

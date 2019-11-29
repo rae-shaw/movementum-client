@@ -2,15 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FolderApiService from '../services/folder-api-services.js';
 
-
-
 export default class AddFolder extends React.Component{
 	static defaultProps = {
 	    history: {
 	      push: () => { }
 	    },
 	}
-
 
 	constructor(props) {
     	super(props);
@@ -41,19 +38,16 @@ export default class AddFolder extends React.Component{
 	    const folder = {
 	      name: e.target['folder-name'].value
 	    }
-	    console.log('********* folder',folder)
 	    FolderApiService.postFolder(folder)
 	    .then((folder) => {
-	    	console.log('*********** in addFolder .then', folder)
 	    	this.props.history.push(`/main`)
 	    })
 	    .catch(
-	    	//error => { console.error({ error }) }
-	    	)
+	    	error => { console.error({ error }) }
+	    )
 	}
 
     render(){
-    	console.log('props in addfolder', this.props)
         return(
             <>
 		      	<header>
@@ -71,7 +65,6 @@ export default class AddFolder extends React.Component{
 		          		<Link to='/main'>
 		          			<button type="reset">Back</button>
 		          		</Link>
-
 		        	</form>
 		      	</section>
 		    </>

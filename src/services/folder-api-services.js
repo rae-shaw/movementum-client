@@ -26,7 +26,6 @@ const FolderApiService = {
                 : res.json()
         )
     },
-    //need to work on this one
     postFolder(folder) {
         console.log('IN FOLDER SERVICE*********')
         return fetch(`${config.API_ENDPOINT}/folder`, {
@@ -38,7 +37,6 @@ const FolderApiService = {
             body: JSON.stringify(folder),
         })
         .then(res => {
-            //console.log(res.json)
             return (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()

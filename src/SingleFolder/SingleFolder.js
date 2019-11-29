@@ -22,8 +22,6 @@ export default class AddFolder extends React.Component{
         })
     }
     render(){
-    	console.log('*****SingleFolder props', this.props)
-    	console.log('*******singlefolderstate', this.state)
 		return(
 			< >
 				<header>
@@ -31,9 +29,7 @@ export default class AddFolder extends React.Component{
 				</header>
 				<Link to={`/main`}>
 					<button className='buttons' type='button'> Go Back </button>
-				</Link>
-				
-				
+				</Link>	
 			</ >
 		)
 	}

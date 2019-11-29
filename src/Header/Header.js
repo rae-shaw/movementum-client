@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { Hyph } from '../Utils/Utils'
 import TokenService from '../services/token-service'
-//import IdleService from '../services/idle-service'
 import './Header.css'
 
 export default class Header extends Component {
@@ -44,7 +41,6 @@ export default class Header extends Component {
     }
 
     render() {
-        console.log('tokenservice!', TokenService.hasAuthToken())
         return (
             <>
                 <h1 className='nav-header'> Movementum </h1>

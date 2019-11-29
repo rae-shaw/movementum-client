@@ -5,13 +5,13 @@ import TokenService from '../services/token-service'
 export default function PublicRoute({ component, render, ...props }) {
   const Component = component || render
   return (
-    <Route
-      {...props}
-      render={componentProps => (
-        TokenService.hasAuthToken()
-          ? <Redirect to={'/main'} />
-          : <Component {...componentProps} />
-      )}
-    />
-  )
+        <Route
+                {...props}
+                render={componentProps => (
+                    TokenService.hasAuthToken()
+                        ? <Redirect to={'/main'} />
+                        : <Component {...componentProps} />
+                )}
+        />
+    )
 }

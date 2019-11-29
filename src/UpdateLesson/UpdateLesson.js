@@ -21,10 +21,12 @@ import FolderApiService from '../services/folder-api-services.js';
 
 	componentDidMount() {
 
-        PlanApiService.getPlan(this.props.location.state.plan.id)
+        PlanApiService.getPlan(this.props.match.params.lessonId)
 	  	.then(responseData => {
 	    	this.setState({
 	          	id: responseData.id,
+	          	name: responseData.name,
+	          	class_date: responseData.class_date,
 	          	folder_id: responseData.folder_id,
 	          	skills: responseData.skills || '',
 	          	warm_up: responseData.warm_up || '',
@@ -82,13 +84,12 @@ import FolderApiService from '../services/folder-api-services.js';
 	};
 
 	render(){
-	    const plan = this.props.location.state.plan
 	    const folders = this.state.folders
-	    const update_class_date= new Date(plan.class_date)
+	    const update_class_date= new Date(this.state.class_date)
 		return(
 			<section className='updateLesson'>
 				<header>
-					<h3 className='updateLessonTitle'>{plan.name}</h3>
+					<h3 className='updateLessonTitle'>{this.state.name}</h3>
 		        	<p className='updateLessonP'>{update_class_date.toDateString()}</p>
 		        	<Link id = 'link-to-main' to={`/main`}>
 						<button className='buttons' type='button'> Go Back </button>

@@ -26,7 +26,6 @@ const PlanApiService = {
                 : res.json()
         )
     },
-    //need to work on this one
     postPlan(newPlan) {
         return fetch(`${config.API_ENDPOINT}/plan`, {
             method: 'POST',
@@ -60,7 +59,6 @@ const PlanApiService = {
                 'content-type': 'application/json',
             },
         })
-
         .then(res => {
             if (!res.ok)
                     throw new Error()

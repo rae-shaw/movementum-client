@@ -1,8 +1,6 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 import AuthApiService from '../services/auth-api-service';
 import TokenService from '../services/token-service';
-//import { withRouter } from "react-router-dom";
 
 class LoginOnly extends React.Component{
 
@@ -24,8 +22,6 @@ class LoginOnly extends React.Component{
             password: password.value,
         })
         .then(res => {
-            console.log('****** props in LoginOnly', this.props)
-            console.log("******** .then in LoginOnly")
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
@@ -40,9 +36,7 @@ class LoginOnly extends React.Component{
 
 
     render(){
-        console.log('Login Page props', this.props)
-        console.log('******** props history in LoginOnly',this.props.history)
-       const { error } = this.state
+        const { error } = this.state
         return(           
             <>
                 <header>
